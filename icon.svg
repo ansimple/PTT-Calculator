@@ -1,69 +1,116 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Background Gradient (Deep Espresso to Warm Walnut) -->
+    <!-- Background Gradient (Rich Deep Walnut & Warm Obsidian) -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#140f0c" />
-      <stop offset="45%" stop-color="#1e1814" />
-      <stop offset="100%" stop-color="#2a201b" />
+      <stop offset="50%" stop-color="#1c1612" />
+      <stop offset="100%" stop-color="#2a201a" />
     </linearGradient>
 
-    <!-- Deceased Gold Gradient -->
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fbbf24" />
+    <!-- Golden Amber Gradient (Main Lines & Structural Pillars) -->
+    <linearGradient id="amberGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="25%" stop-color="#fbbf24" />
       <stop offset="100%" stop-color="#d97706" />
     </linearGradient>
 
-    <!-- Heir Emerald Gradient -->
+    <!-- Warm Amber Glow for Calculator Panel -->
+    <linearGradient id="calcBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+
+    <!-- Emerald Jade Gradient (Tax Savings & Final Settlement '=') -->
     <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#34d399" />
       <stop offset="100%" stop-color="#059669" />
     </linearGradient>
 
-    <!-- Drop Shadows for Nodes -->
-    <filter id="goldGlow" x="-25%" y="-25%" width="150%" height="150%">
-      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#d97706" flood-opacity="0.45" />
-    </filter>
-    <filter id="emeraldGlow" x="-25%" y="-25%" width="150%" height="150%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#059669" flood-opacity="0.4" />
+    <!-- Key Button Background Gradient -->
+    <linearGradient id="keyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#32261f" />
+      <stop offset="100%" stop-color="#231914" />
+    </linearGradient>
+
+    <!-- Soft Ambient Glow -->
+    <filter id="houseGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#d97706" flood-opacity="0.32" />
     </filter>
   </defs>
 
-  <!-- Background Rounded Frame -->
-  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
-  <rect x="18" y="18" width="476" height="476" rx="94" fill="none" stroke="#57483e" stroke-width="3.5" stroke-opacity="0.75" />
+  <!-- 1. Background Squircle Canvas -->
+  <rect width="512" height="512" rx="116" fill="url(#bgGrad)" />
+  <!-- Elegant Inner Border -->
+  <rect x="18" y="18" width="476" height="476" rx="98" fill="none" stroke="#57483e" stroke-width="3" stroke-opacity="0.6" />
 
-  <!-- Orthogonal Family Tree Connection Lines (Warm Amber Bronze) -->
-  <g stroke="#d97706" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <!-- Vertical Drop from Deceased Parent -->
-    <path d="M 256 210 L 256 256" />
-    <!-- Horizontal Bus Bar with Continuous Right-Angled Drops to Children -->
-    <path d="M 144 310 L 144 256 L 368 256 L 368 310" />
-  </g>
+  <!-- 2. Integrated Architecture (House Silhouette) -->
+  <g filter="url(#houseGlow)">
+    
+    <!-- Roof Gable Apex (Thick, confident, modern Korean legal aesthetic) -->
+    <path d="M 256 74 L 436 218 C 440 221 440 228 435 231 C 430 234 424 233 420 229 L 256 98 L 92 229 C 88 233 82 234 77 231 C 72 228 72 221 76 218 Z" 
+          fill="url(#amberGold)" />
 
-  <!-- Bus Central Distribution Point -->
-  <circle cx="256" cy="256" r="6" fill="#fbbf24" />
+    <!-- Attic Light Triangle (Clear consultation light) -->
+    <polygon points="256,128 288,174 224,174" fill="#fbbf24" opacity="0.95" />
 
-  <!-- 1. Root Deceased Person Node (Amber Gold) -->
-  <g transform="translate(256, 150)" filter="url(#goldGlow)">
-    <circle r="60" fill="url(#goldGrad)" />
-    <!-- Person Silhouette -->
-    <circle cx="0" cy="-16" r="19" fill="#140f0c" />
-    <path d="M -30 30 C -30 11 -16 2 0 2 C 16 2 30 11 30 30 Z" fill="#140f0c" />
-  </g>
+    <!-- Main Building Body (Houses the legal registry & calculation matrix) -->
+    <rect x="110" y="214" width="292" height="212" rx="20" fill="#1b1410" stroke="url(#amberGold)" stroke-width="7" />
 
-  <!-- 2. Heir Child Node 1 (Emerald Green) -->
-  <g transform="translate(144, 360)" filter="url(#emeraldGlow)">
-    <circle r="50" fill="url(#emeraldGrad)" />
-    <!-- Person Silhouette -->
-    <circle cx="0" cy="-14" r="16" fill="#140f0c" />
-    <path d="M -25 25 C -25 9 -13 2 0 2 C 13 2 25 9 25 25 Z" fill="#140f0c" />
-  </g>
+    <!-- Ground Baseline (Solid registry foundation) -->
+    <line x1="72" y1="432" x2="440" y2="432" stroke="url(#amberGold)" stroke-width="6" stroke-linecap="round" />
+    <line x1="120" y1="446" x2="392" y2="446" stroke="#57483e" stroke-width="3.5" stroke-linecap="round" opacity="0.6" />
 
-  <!-- 3. Heir Child Node 2 (Emerald Green) -->
-  <g transform="translate(368, 360)" filter="url(#emeraldGlow)">
-    <circle r="50" fill="url(#emeraldGrad)" />
-    <!-- Person Silhouette -->
-    <circle cx="0" cy="-14" r="16" fill="#140f0c" />
-    <path d="M -25 25 C -25 9 -13 2 0 2 C 13 2 25 9 25 25 Z" fill="#140f0c" />
+    <!-- 3. Integrated Facade: Calculator Matrix (Merged seamlessly into the House) -->
+    
+    <!-- Top Display Screen: Digital Tax Rate & Settlement Bar -->
+    <rect x="136" y="238" width="240" height="46" rx="10" fill="#0d0907" stroke="#4a3b32" stroke-width="2.5" />
+    <!-- Screen Accent Glow / Numbers representation -->
+    <rect x="152" y="256" width="94" height="10" rx="5" fill="url(#emeraldGrad)" />
+    <circle cx="346" cy="261" r="5" fill="#fbbf24" />
+    <circle cx="360" cy="261" r="5" fill="#34d399" />
+
+    <!-- Calculator Keys Matrix (3 Columns x 2 Rows of distinct functional keys) -->
+    <!-- Row 1: Keys for Tax Math (+, -, %) -->
+    <!-- Key 1: [+] -->
+    <g transform="translate(136, 298)">
+      <rect width="68" height="50" rx="12" fill="url(#keyGrad)" stroke="#57483e" stroke-width="2" />
+      <line x1="34" y1="16" x2="34" y2="34" stroke="#fbbf24" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="25" y1="25" x2="43" y2="25" stroke="#fbbf24" stroke-width="4.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Key 2: [-] -->
+    <g transform="translate(222, 298)">
+      <rect width="68" height="50" rx="12" fill="url(#keyGrad)" stroke="#57483e" stroke-width="2" />
+      <line x1="25" y1="25" x2="43" y2="25" stroke="#fbbf24" stroke-width="4.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Key 3: [%] (Tax Rate Key) -->
+    <g transform="translate(308, 298)">
+      <rect width="68" height="50" rx="12" fill="#d97706" />
+      <text x="34" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="24" text-anchor="middle" dominant-baseline="central">%</text>
+    </g>
+
+    <!-- Row 2: Standard Key, Won (₩) Symbol, and Equal (=) Result Key -->
+    <!-- Key 4: 3-Dots / Currency Units -->
+    <g transform="translate(136, 360)">
+      <rect width="68" height="50" rx="12" fill="url(#keyGrad)" stroke="#57483e" stroke-width="2" />
+      <circle cx="24" cy="25" r="4" fill="#a8a29e" />
+      <circle cx="34" cy="25" r="4" fill="#a8a29e" />
+      <circle cx="44" cy="25" r="4" fill="#a8a29e" />
+    </g>
+
+    <!-- Key 5: Korean Won '₩' Key -->
+    <g transform="translate(222, 360)">
+      <rect width="68" height="50" rx="12" fill="url(#keyGrad)" stroke="#57483e" stroke-width="2" />
+      <text x="34" y="32" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="22" text-anchor="middle" dominant-baseline="central">₩</text>
+    </g>
+
+    <!-- Key 6: [=] Settlement & Total Cost Key (Emerald Green Highlight) -->
+    <g transform="translate(308, 360)">
+      <rect width="68" height="50" rx="12" fill="url(#emeraldGrad)" />
+      <line x1="24" y1="20" x2="44" y2="20" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="24" y1="30" x2="44" y2="30" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+    </g>
+
   </g>
 </svg>

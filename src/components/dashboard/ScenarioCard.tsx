@@ -56,9 +56,9 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
     >
       {/* Top Badge & Status */}
       <div className="space-y-2">
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-1.5">
           <span
-            className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${
+            className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border whitespace-nowrap ${
               isStandard
                 ? 'bg-stone-800 text-stone-300 border-stone-700'
                 : 'bg-amber-500/15 text-amber-300 border-amber-500/30'
@@ -69,15 +69,15 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
 
           {/* Checklist status indicator */}
           {!isStandard && (
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 shrink-0">
               {isEligible ? (
-                <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
+                <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20 whitespace-nowrap">
+                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                   <span>적격 충족</span>
                 </span>
               ) : (
-                <span className="flex items-center gap-1 text-[11px] font-medium text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
-                  <Clock className="w-3.5 h-3.5" />
+                <span className="flex items-center gap-1 text-[11px] font-medium text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20 whitespace-nowrap">
+                  <Clock className="w-3.5 h-3.5 shrink-0" />
                   <span>요건 점검 필요</span>
                 </span>
               )}
@@ -122,12 +122,12 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
 
         {/* Savings Badge */}
         {hasSavings && (
-          <div className="flex items-center justify-between p-2 rounded-lg bg-emerald-950/50 border border-emerald-600/40 text-emerald-300 text-xs font-semibold">
+          <div className="flex flex-wrap items-center justify-between gap-1 p-2 rounded-lg bg-emerald-950/50 border border-emerald-600/40 text-emerald-300 text-xs font-semibold">
             <div className="flex items-center gap-1">
-              <Scale className="w-3.5 h-3.5 text-emerald-400" />
-              <span>일반 대비 총 절세액</span>
+              <Scale className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span className="whitespace-nowrap">일반 대비 총 절세액</span>
             </div>
-            <span className="font-mono text-sm font-bold text-emerald-400">
+            <span className="font-mono text-sm font-bold text-emerald-400 whitespace-nowrap">
               +{formatWon(scenario.taxSavingsAmount)}
             </span>
           </div>
@@ -135,28 +135,28 @@ export const ScenarioCard: React.FC<ScenarioCardProps> = ({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex items-center gap-2 pt-4 mt-3 border-t border-brown-800/80">
+      <div className="flex items-center gap-2 pt-3 mt-3 border-t border-brown-800/80">
         {!isStandard && (
           <button
             type="button"
             onClick={handleOpenChecklist}
-            className={`flex-1 py-2 px-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 ${
+            className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0 truncate ${
               isEligible
                 ? 'bg-emerald-600/20 text-emerald-300 border border-emerald-600/40 hover:bg-emerald-600/30'
                 : 'bg-amber-600/20 text-amber-300 border border-amber-600/40 hover:bg-amber-600/30'
             }`}
           >
-            <FileCheck className="w-3.5 h-3.5" />
-            <span>{isEligible ? '요건 점검 완료' : '요건 점검 문답'}</span>
+            <FileCheck className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">{isEligible ? '요건 점검 완료' : '요건 점검 문답'}</span>
           </button>
         )}
 
         <button
           type="button"
           onClick={handleOpenReceipt}
-          className="py-2 px-3 rounded-xl bg-brown-800 hover:bg-brown-700 text-stone-200 text-xs font-medium border border-brown-700/60 transition flex items-center justify-center gap-1 shrink-0"
+          className="py-2 px-3 rounded-xl bg-brown-800 hover:bg-brown-700 text-stone-200 text-xs font-medium border border-brown-700/60 transition flex items-center justify-center gap-1 shrink-0 whitespace-nowrap"
         >
-          <Receipt className="w-3.5 h-3.5" />
+          <Receipt className="w-3.5 h-3.5 shrink-0" />
           <span>명세서</span>
         </button>
       </div>

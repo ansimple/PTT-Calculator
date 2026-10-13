@@ -53,12 +53,12 @@ export const NumberWonInput: React.FC<NumberWonInputProps> = ({
 
   return (
     <div className={`space-y-1.5 ${className}`}>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-0.5">
         <label className="text-xs font-semibold text-stone-300">
           {label}
         </label>
         {value > 0 && (
-          <span className="text-[11px] font-medium text-amber-300 font-mono">
+          <span className="text-[11px] font-medium text-amber-300 font-mono whitespace-nowrap">
             {getKoreanWonSummary(value)}
           </span>
         )}

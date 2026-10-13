@@ -54,7 +54,7 @@ export const ChecklistDrawer: React.FC = () => {
                 진행도: {checkedCount}/{totalCount}
               </span>
             </div>
-            <h3 className="text-base font-bold text-white truncate">
+            <h3 className="text-sm sm:text-base font-bold text-white leading-snug break-keep">
               {currentScenario.scenarioName} 요건 심사
             </h3>
             <p className="text-[11px] text-stone-400 font-mono">
@@ -160,25 +160,25 @@ export const ChecklistDrawer: React.FC = () => {
         </div>
 
         {/* Footer Actions */}
-        <div className="p-3.5 sm:p-4 border-t border-brown-800 bg-brown-900 flex items-center justify-between gap-3 shrink-0">
+        <div className="p-3.5 sm:p-4 border-t border-brown-800 bg-brown-900 flex flex-wrap items-center justify-between gap-2 shrink-0">
           <button
             onClick={() => resetChecklist(currentScenario.scenarioId)}
-            className="flex items-center gap-1 px-3 py-2 rounded-xl text-xs text-stone-400 hover:text-stone-200 hover:bg-brown-800 transition"
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs text-stone-400 hover:text-stone-200 hover:bg-brown-800 whitespace-nowrap transition"
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <RotateCcw className="w-3.5 h-3.5 shrink-0" />
             <span>체크 초기화</span>
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <button
               onClick={handleClose}
-              className="px-4 py-2 rounded-xl text-xs font-semibold text-stone-300 hover:bg-brown-800 transition"
+              className="px-3 sm:px-4 py-2 rounded-xl text-xs font-semibold text-stone-300 hover:bg-brown-800 whitespace-nowrap transition"
             >
               닫기
             </button>
             <button
               onClick={handleApplyThis}
-              className="px-5 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-500 text-white shadow-lg shadow-amber-600/30 transition"
+              className="px-3.5 sm:px-5 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-500 text-white shadow-lg shadow-amber-600/30 whitespace-nowrap transition"
             >
               이 감면으로 적용하기
             </button>

@@ -80,45 +80,46 @@ ${currentScenario.postManagementNotice.map(n => ` - ${n}`).join('\n')}`;
       <div className="w-full max-w-2xl bg-brown-900 border border-brown-700 rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col max-h-[92vh] overflow-hidden text-stone-100">
         
         {/* Header */}
-        <div className="p-4 sm:p-5 border-b border-brown-800 flex items-center justify-between shrink-0 bg-brown-900">
-          <div className="flex items-center gap-2 min-w-0 pr-2">
-            <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-              <Receipt className="w-4 h-4" />
+        <div className="p-3.5 sm:p-5 border-b border-brown-800 flex items-center justify-between shrink-0 bg-brown-900 gap-2">
+          <div className="flex items-center gap-1.5 min-w-0 pr-1">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+              <Receipt className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
             <div className="min-w-0">
-              <h3 className="text-base font-bold text-white truncate">
+              <h3 className="text-xs sm:text-base font-bold text-white whitespace-nowrap truncate">
                 등기 비용 상세 산출 명세서
               </h3>
-              <p className="text-[11px] text-stone-400 truncate">
+              <p className="text-[10px] sm:text-[11px] text-stone-400 truncate">
                 {eupMyeonName} / {currentScenario.scenarioName}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
             <button
               onClick={handleCopyShareText}
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold transition ${
+              className={`flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${
                 copied
                   ? 'bg-emerald-600 text-white'
                   : 'bg-brown-800 hover:bg-brown-750 text-stone-200 border border-brown-700'
               }`}
             >
-              {copied ? <Check className="w-3.5 h-3.5" /> : <Share2 className="w-3.5 h-3.5" />}
-              <span>{copied ? '복사 완료' : '상담 텍스트 복사'}</span>
+              {copied ? <Check className="w-3.5 h-3.5 shrink-0" /> : <Share2 className="w-3.5 h-3.5 shrink-0" />}
+              <span className="hidden sm:inline">{copied ? '복사 완료' : '상담 텍스트 복사'}</span>
+              <span className="sm:hidden">{copied ? '완료' : '복사'}</span>
             </button>
 
             <button
               onClick={handleOpenPrint}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold transition shadow-sm"
+              className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold whitespace-nowrap transition shadow-sm"
             >
-              <Printer className="w-3.5 h-3.5" />
-              <span>A4 인쇄</span>
+              <Printer className="w-3.5 h-3.5 shrink-0" />
+              <span>인쇄</span>
             </button>
 
             <button
               onClick={() => setIsReceiptModalOpen(false)}
-              className="p-1.5 rounded-xl text-stone-400 hover:text-white hover:bg-brown-800 transition ml-1"
+              className="p-1 sm:p-1.5 rounded-xl text-stone-400 hover:text-white hover:bg-brown-800 transition"
             >
               <X className="w-5 h-5" />
             </button>
@@ -162,38 +163,38 @@ ${currentScenario.postManagementNotice.map(n => ` - ${n}`).join('\n')}`;
 
             <div className="rounded-2xl bg-brown-900 border border-brown-800 overflow-hidden text-xs">
               <div className="p-3.5 border-b border-brown-800/80 space-y-1.5">
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold text-stone-200">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="font-semibold text-stone-200 min-w-0 pr-1">
                     1. 취득세 본세 (세율 {currentScenario.taxBreakdown.standardTaxRate}%)
                   </span>
-                  <span className="font-mono font-bold text-stone-100">
+                  <span className="font-mono font-bold text-stone-100 whitespace-nowrap shrink-0">
                     {formatNumberWithComma(currentScenario.taxBreakdown.finalBaseTax)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-[11px] text-stone-400 pl-3">
-                  <span>- 산출세액:</span>
-                  <span className="font-mono">{formatNumberWithComma(currentScenario.taxBreakdown.calculatedTaxAmount)}</span>
+                <div className="flex justify-between items-center text-[11px] text-stone-400 pl-3 gap-2">
+                  <span className="min-w-0 pr-1">- 산출세액:</span>
+                  <span className="font-mono whitespace-nowrap shrink-0">{formatNumberWithComma(currentScenario.taxBreakdown.calculatedTaxAmount)}</span>
                 </div>
                 {currentScenario.taxBreakdown.exemptTaxAmount > 0 && (
-                  <div className="flex justify-between items-center text-[11px] text-emerald-400 pl-3">
-                    <span>- 감면공제 ({currentScenario.scenarioName}):</span>
-                    <span className="font-mono">-{formatNumberWithComma(currentScenario.taxBreakdown.exemptTaxAmount)}</span>
+                  <div className="flex justify-between items-center text-[11px] text-emerald-400 pl-3 gap-2">
+                    <span className="min-w-0 pr-1 truncate sm:whitespace-normal">- 감면공제 ({currentScenario.scenarioName}):</span>
+                    <span className="font-mono whitespace-nowrap shrink-0">-{formatNumberWithComma(currentScenario.taxBreakdown.exemptTaxAmount)}</span>
                   </div>
                 )}
               </div>
 
-              <div className="p-3.5 border-b border-brown-800/80 flex justify-between items-center">
-                <div>
+              <div className="p-3.5 border-b border-brown-800/80 flex justify-between items-center gap-2">
+                <div className="min-w-0 pr-1">
                   <span className="font-semibold text-stone-200">2. 지방교육세</span>
                   <span className="text-[10px] text-stone-400 block pl-3">취득세 본세 감면 연동 계산</span>
                 </div>
-                <span className="font-mono font-bold text-stone-100">
+                <span className="font-mono font-bold text-stone-100 whitespace-nowrap shrink-0">
                   {formatNumberWithComma(currentScenario.taxBreakdown.localEducationTax)}
                 </span>
               </div>
 
-              <div className="p-3.5 border-b border-brown-800/80 flex justify-between items-center">
-                <div>
+              <div className="p-3.5 border-b border-brown-800/80 flex justify-between items-center gap-2">
+                <div className="min-w-0 pr-1">
                   <span className="font-semibold text-stone-200">3. 농어촌특별세</span>
                   <span className="text-[10px] text-stone-400 block pl-3">
                     {currentScenario.taxBreakdown.ruralSpecialTax === 0
@@ -201,14 +202,14 @@ ${currentScenario.postManagementNotice.map(n => ` - ${n}`).join('\n')}`;
                       : '국민주택규모 초과 과세'}
                   </span>
                 </div>
-                <span className="font-mono font-bold text-stone-100">
+                <span className="font-mono font-bold text-stone-100 whitespace-nowrap shrink-0">
                   {formatNumberWithComma(currentScenario.taxBreakdown.ruralSpecialTax)}
                 </span>
               </div>
 
-              <div className="p-3.5 bg-brown-950/60 flex justify-between items-center font-bold text-stone-200">
-                <span>지방세 납부 합계</span>
-                <span className="font-mono text-amber-300 text-sm">
+              <div className="p-3.5 bg-brown-950/60 flex justify-between items-center gap-2 font-bold text-stone-200">
+                <span className="min-w-0 pr-1">지방세 납부 합계</span>
+                <span className="font-mono text-amber-300 text-sm whitespace-nowrap shrink-0">
                   {formatNumberWithComma(currentScenario.taxBreakdown.totalLocalTax)}
                 </span>
               </div>
@@ -224,47 +225,47 @@ ${currentScenario.postManagementNotice.map(n => ` - ${n}`).join('\n')}`;
 
             <div className="rounded-2xl bg-brown-900 border border-brown-800 overflow-hidden text-xs">
               <div className="p-3.5 border-b border-brown-800/80 space-y-1.5">
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold text-stone-200">4. 제1종 국민주택채권 매입할인</span>
-                  <span className="font-mono font-bold text-stone-100">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="font-semibold text-stone-200 min-w-0 pr-1">4. 제1종 국민주택채권 매입할인</span>
+                  <span className="font-mono font-bold text-stone-100 whitespace-nowrap shrink-0">
                     {formatNumberWithComma(currentScenario.registrationExpenses.bondPaymentAmount)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-[11px] text-stone-400 pl-3">
-                  <span>- 시가표준액 기준 채권발행액 (매입률 {currentScenario.registrationExpenses.bondRate}%):</span>
-                  <span className="font-mono">{formatNumberWithComma(currentScenario.registrationExpenses.bondRequiredAmount)}</span>
+                <div className="flex justify-between items-center text-[11px] text-stone-400 pl-3 gap-2">
+                  <span className="min-w-0 pr-1 leading-tight">- 시가표준액 기준 채권발행액 (매입률 {currentScenario.registrationExpenses.bondRate}%):</span>
+                  <span className="font-mono whitespace-nowrap shrink-0">{formatNumberWithComma(currentScenario.registrationExpenses.bondRequiredAmount)}</span>
                 </div>
-                <div className="flex justify-between items-center text-[11px] text-stone-400 pl-3">
-                  <span>- 일자별 즉시할인율 적용 본인부담금:</span>
-                  <span className="font-mono">{input.bondDiscountRate}%</span>
+                <div className="flex justify-between items-center text-[11px] text-stone-400 pl-3 gap-2">
+                  <span className="min-w-0 pr-1 leading-tight">- 일자별 즉시할인율 적용 본인부담금:</span>
+                  <span className="font-mono whitespace-nowrap shrink-0">{input.bondDiscountRate}%</span>
                 </div>
               </div>
 
-              <div className="p-3.5 border-b border-brown-800/80 flex justify-between items-center">
-                <div>
+              <div className="p-3.5 border-b border-brown-800/80 flex justify-between items-center gap-2">
+                <div className="min-w-0 pr-1">
                   <span className="font-semibold text-stone-200">5. 대한민국 정부수입인지세</span>
                   <span className="text-[10px] text-stone-400 block pl-3">인지세법 제3조 부동산 소유권 이전</span>
                 </div>
-                <span className="font-mono font-bold text-stone-100">
+                <span className="font-mono font-bold text-stone-100 whitespace-nowrap shrink-0">
                   {formatNumberWithComma(currentScenario.registrationExpenses.stampTax)}
                 </span>
               </div>
 
-              <div className="p-3.5 border-b border-brown-800/80 flex justify-between items-center">
-                <div>
+              <div className="p-3.5 border-b border-brown-800/80 flex justify-between items-center gap-2">
+                <div className="min-w-0 pr-1">
                   <span className="font-semibold text-stone-200">6. 대법원 등기신청수수료</span>
                   <span className="text-[10px] text-stone-400 block pl-3">
                     {input.registrationMethod === 'E_FORM' ? 'e-Form 전자표준양식' : input.registrationMethod === 'ELECTRONIC' ? '전자신청' : '서면방문'}
                   </span>
                 </div>
-                <span className="font-mono font-bold text-stone-100">
+                <span className="font-mono font-bold text-stone-100 whitespace-nowrap shrink-0">
                   {formatNumberWithComma(currentScenario.registrationExpenses.registrationFee)}
                 </span>
               </div>
 
-              <div className="p-3.5 bg-brown-950/60 flex justify-between items-center font-bold text-stone-200">
-                <span>공적 부대비용 합계</span>
-                <span className="font-mono text-amber-300 text-sm">
+              <div className="p-3.5 bg-brown-950/60 flex justify-between items-center gap-2 font-bold text-stone-200">
+                <span className="min-w-0 pr-1">공적 부대비용 합계</span>
+                <span className="font-mono text-amber-300 text-sm whitespace-nowrap shrink-0">
                   {formatNumberWithComma(currentScenario.registrationExpenses.totalExpenses)}
                 </span>
               </div>
@@ -273,22 +274,22 @@ ${currentScenario.postManagementNotice.map(n => ` - ${n}`).join('\n')}`;
 
           {/* Grand Total Box */}
           <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="text-xs sm:text-sm font-bold text-stone-200">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-xs sm:text-sm font-bold text-stone-200 min-w-0 pr-1">
                 총 등기 소요 예상 비용 [A + B]
               </span>
-              <span className="text-xl sm:text-2xl font-bold text-amber-400 font-mono">
+              <span className="text-xl sm:text-2xl font-bold text-amber-400 font-mono whitespace-nowrap shrink-0">
                 {formatWon(currentScenario.grandTotal)}
               </span>
             </div>
 
             {currentScenario.taxSavingsAmount > 0 && (
-              <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between text-xs font-semibold text-emerald-400">
-                <span className="flex items-center gap-1">
-                  <Scale className="w-4 h-4" />
-                  <span>일반 과세(비감면) 대비 절세 혜택</span>
+              <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between gap-2 text-xs font-semibold text-emerald-400">
+                <span className="flex items-center gap-1 min-w-0 pr-1">
+                  <Scale className="w-4 h-4 shrink-0" />
+                  <span className="truncate">일반 과세(비감면) 대비 절세 혜택</span>
                 </span>
-                <span className="font-mono text-base font-bold">
+                <span className="font-mono text-base font-bold whitespace-nowrap shrink-0">
                   +{formatWon(currentScenario.taxSavingsAmount)}
                 </span>
               </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  Building2, 
   Printer, 
   Receipt, 
   Download
@@ -20,8 +19,8 @@ export const Header: React.FC = () => {
     <header className="h-14 border-b border-brown-800 bg-brown-900/95 backdrop-blur px-2.5 sm:px-5 flex items-center justify-between gap-1.5 sm:gap-2 z-20 shrink-0 no-print">
       {/* Brand & Logo */}
       <div className="flex items-center min-w-0 pr-1 shrink-0">
-        <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 mr-2 shrink-0">
-          <Building2 className="w-4 h-4" />
+        <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center p-0.5 mr-2 shrink-0 overflow-hidden shadow-sm">
+          <img src="/PTT-Calculator/icon.svg" alt="로고" className="w-full h-full object-contain rounded-lg" />
         </div>
         <div className="min-w-0">
           <h1 className="text-xs sm:text-sm font-semibold tracking-tight text-stone-100 flex items-center gap-1.5 sm:gap-2">

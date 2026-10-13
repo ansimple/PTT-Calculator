@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  Building2, 
   MapPin, 
   Home, 
   FileText, 
@@ -27,8 +26,8 @@ export const PropertyForm: React.FC = () => {
       {/* Form Title & Reset */}
       <div className="flex items-center justify-between border-b border-brown-800/80 pb-3 gap-2">
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-            <Building2 className="w-4 h-4" />
+          <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center p-0.5 shrink-0 overflow-hidden shadow-sm">
+            <img src="/PTT-Calculator/icon.svg" alt="기본 정보" className="w-full h-full object-contain rounded-lg" />
           </div>
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-1.5">

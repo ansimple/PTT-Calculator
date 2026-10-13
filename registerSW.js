@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/PTT-Calculator/sw.js', { scope: '/PTT-Calculator/' })})}
